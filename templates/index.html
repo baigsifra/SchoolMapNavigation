@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>School Map Navigator</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class ="intro">
+      <h1 class="logo-header"></h1>
+        <span class="logo">School </span><span class="logo">  Navigator</span>
+      </h1>
+    </div>
+    <header>
+      <h1>School Map Navigator</h1>
+    </header>
+    <div class="wrapper">
+      <p class="instructions">Insert a picture of your school map and write down your schedule to find the fastest route to get to your classes!</p>
+      <!--enctype="multipart/form-data"-->
+      <form action="/" method="POST" enctype="multipart/form-data">
+        <p class="file-inst">Insert a picture of your school map below:</p>
+        <div class="img-upld-wrapper">
+          <label for="upload-file">
+            Upload Here
+          </label>
+          <span id="file-selected"></span>
+          <input id="upload-file" type="file" name='school-img'>
+        </div>
+        <label for="classes">
+          Write down your schedule below:
+        </label>
+        <input type="text" id="classes">
+        <input type="submit" value="Upload!" id="uploadBtn">
+      </form>
+    </div>
+    <div class="output">
+      <img src="{{ school_img }}">
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
